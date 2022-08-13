@@ -4,7 +4,8 @@
   "description": "This is a twitter web scraper",
   "main": "scraper.js",
   "scripts": {
-    "start": "nodemon scraper.js"
+    "start": "nodemon scraper.js",
+    "start:pup" : "node scraper2.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.12",
     "express": "^4.18.1",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "puppeteer": "^16.1.0"
   }
 }

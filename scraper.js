@@ -6,7 +6,7 @@ const express = require('express');
 //Declarations
 const PORT = 8080;
 const app = express();
-const url = 'https://www.theguardian.com/uk';
+const url = 'https://dev.to/';
 
 //Scripts
 axios(url)
@@ -16,7 +16,7 @@ axios(url)
         const $ = cheerio.load(html);
         const articles = [];
 
-        $('.fc-item__title', html).each(function() {
+        $('.crayons-story__title', html).each(function() {
             const title = $(this).text();
             const url = $(this).find('a').attr('href');
 
