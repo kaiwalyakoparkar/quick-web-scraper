@@ -1,6 +1,7 @@
 //Packages
 const axios = require("axios");
 const cheerio = require("cheerio");
+const puppeteer = require("puppeteer");
 require("dotenv").config();
 
 // const url =
@@ -13,7 +14,19 @@ const product = { name: "", price: "", link: "" };
 //Set interval
 const handle = setInterval(scrape, 5000);
 
+//connect with the proxy directly through code
+async function proxy () {
+    const browser = await puppeteer.launch({ 
+        headless: true, 
+        args: ['--proxy-server=23.109.113.44:10002'] 
+    }); 
+    const page = await browser.newPage(); 
+    await page.authenticate();
+    await browser.close();
+}
+
 async function scrape() {
+
     //Fetch the data
     const { data } = await axios.get(url);
     //Load up the html
@@ -36,4 +49,5 @@ async function scrape() {
     }
 }
 
+proxy();
 scrape();
