@@ -1,15 +1,16 @@
-
 # Import Dependencies
-from telnetlib import EC
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.options import Options 
 from time import sleep
 
 PATH = "./chromedriver"
-driver = webdriver.Chrome(PATH)
+chrome_options = Options() 
+chrome_options.add_extension("proxy.zip") 
+
+driver = webdriver.Chrome(PATH, options=chrome_options)
 driver.get("https://twitter.com/login")
 
 subject = "Kaiwalya Koparkar"
