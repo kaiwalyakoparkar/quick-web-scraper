@@ -9,10 +9,12 @@ from time import sleep
 
 PATH = "./chromedriver"
 options = Options() 
-# chrome_options.add_extension("proxy.zip") 
-# driver = webdriver.Chrome(PATH, options=chrome_options)
 
+PROXY = "proxy.soax.com:10002" 
+options = webdriver.ChromeOptions()
+options.add_argument('proxy.soax.com'.format(PROXY))  
 driver = webdriver.Chrome(service=Service(PATH), options=options)
+
 driver.get("https://twitter.com/login")
 
 subject = "Kaiwalya Koparkar"
