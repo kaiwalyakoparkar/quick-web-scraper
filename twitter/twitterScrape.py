@@ -11,7 +11,7 @@ PATH = "./chromedriver"
 options = Options() 
 
 
-PROXY = "proxy.soax.com:10002" 
+PROXY = "proxy.soax.com:10000" 
 options = webdriver.ChromeOptions()
 options.add_argument('proxy.soax.com'.format(PROXY))  
 driver = webdriver.Chrome(service=Service(PATH), options=options)
@@ -22,32 +22,30 @@ subject = "Kaiwalya Koparkar"
 
 
 # Setup the log in
-sleep(3)
+sleep(5)
 username = driver.find_element(By.XPATH, "//input[@name='text']")
-username.send_keys('')
+username.send_keys('bot65463')
 next_button = driver.find_element(By.XPATH, "//span[contains(text(),'Next')]")
 next_button.click()
 
-sleep(3)
+sleep(5)
 password = driver.find_element(By.XPATH, "//input[@name='password']")
-password.send_keys('')
+password.send_keys('scraperBot')
 log_in = driver.find_element(By.XPATH, "//span[contains(text(),'Log in')]")
 log_in.click()
 
 # Search item and fetch it
-sleep(3)
-search_box = driver.find_element(
-    By.XPATH, "//input[@data-testid='SearchBox_Search_Input']")
+sleep(5)
+search_box = driver.find_element(By.XPATH, "//input[@data-testid='SearchBox_Search_Input']")
 search_box.send_keys(subject)
 search_box.send_keys(Keys.ENTER)
 
-sleep(3)
+sleep(5)
 people = driver.find_element(By.XPATH, "//span[contains(text(),'People')]")
 people.click()
 
-sleep(3)
-profile = driver.find_element(
-    By.XPATH, "//*[@id='react-root']/div/div/div[2]/main/div/div/div/div/div/div[2]/div/section/div/div/div[1]/div/div/div/div/div[2]/div/div[1]/div/div[1]/a/div/div[1]/span/span")
+sleep(5)
+profile = driver.find_element(By.XPATH, "//*[@id='react-root']/div/div/div[2]/main/div/div/div/div/div/div[2]/div/section/div/div/div[1]/div/div/div/div/div[2]/div/div[1]/div/div[1]/a/div/div[1]/span/span")
 profile.click()
 
 UserTags = []
