@@ -17,7 +17,6 @@ PATH = "./chromedriver"
 # options = webdriver.ChromeOptions()
 # options.add_argument('proxy.soax.com'.format(PROXY))
 
-#code by pythonjar, not me
 # chrome_options = webdriver.ChromeOptions()
 prefs = {"profile.default_content_setting_values.notifications" : 2}
 options = Options()
@@ -25,7 +24,7 @@ options.add_experimental_option("prefs",prefs)
 driver = webdriver.Chrome(service=Service(PATH), options=options)
 
 
-#open the webpage
+#opening facebook's login page
 driver.get("http://www.facebook.com")
 
 #target username
@@ -38,12 +37,9 @@ username.send_keys("")
 password.clear()
 password.send_keys("")
 
-#target the login button and click it
+#logging in to the facebook
 button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
 
-#We are logged in!
-
-#wait 5 seconds to allow your new page to load
 time.sleep(5)
 images = [] 
 
@@ -68,10 +64,11 @@ for i in ["photos_all", "photos_of"]:
     
     for a in anchors:
         # print(a)
-        driver.get(a) #navigate to the image link
+        # driver.get(a) #Navigating to each image being iterated
         time.sleep(5)
         img = driver.find_elements(By.TAG_NAME, "img")
         images.append(img[1].get_attribute("src")) #Can change in future to img[?]
 
 print('Scraped '+ str(len(images)) + ' images!')
 # print(images)
+driver.get(images[0])
