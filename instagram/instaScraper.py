@@ -10,13 +10,11 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.wait import WebDriverWait
 
 # Soax Residential proxy connection
-# PROXY = "proxy.soax.com:10000" 
+PROXY = "proxy.soax.com:10002" 
 
-#specify the path to chromedriver.exe (download and save on your computer)
 PATH = "./chromedriver"
-# options = webdriver.ChromeOptions()
-# options.add_argument('proxy.soax.com'.format(PROXY))
-options = Options()
+options = webdriver.ChromeOptions()
+options.add_argument('proxy.soax.com'.format(PROXY))
 driver = webdriver.Chrome(service=Service(PATH), options=options)
 
 #open the webpage
@@ -28,9 +26,9 @@ password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SE
 
 #enter username and password
 username.clear()
-username.send_keys("bot65463")
+username.send_keys("")
 password.clear()
-password.send_keys("scraperBot")
+password.send_keys("")
 
 #target the login button and click it
 button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
