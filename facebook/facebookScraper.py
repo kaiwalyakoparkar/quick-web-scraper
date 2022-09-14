@@ -10,16 +10,14 @@ import time
 
 
 # Soax Residential proxy connection
-PROXY = "proxy.soax.com:10000" 
+PROXY = "proxy.soax.com:10002" 
 
 #specify the path to chromedriver.exe (download and save on your computer)
 PATH = "./chromedriver"
+prefs = {"profile.default_content_setting_values.notifications" : 2}
+
 options = webdriver.ChromeOptions()
 options.add_argument('proxy.soax.com'.format(PROXY))
-
-# chrome_options = webdriver.ChromeOptions()
-prefs = {"profile.default_content_setting_values.notifications" : 2}
-# options = Options()
 options.add_experimental_option("prefs",prefs)
 driver = webdriver.Chrome(service=Service(PATH), options=options)
 
