@@ -10,7 +10,6 @@ from time import sleep
 PATH = "./chromedriver"
 options = Options() 
 
-
 PROXY = "proxy.soax.com:10000" 
 options = webdriver.ChromeOptions()
 options.add_argument('proxy.soax.com'.format(PROXY))  
