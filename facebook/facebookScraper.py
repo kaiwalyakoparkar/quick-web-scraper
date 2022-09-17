@@ -68,5 +68,5 @@ for i in ["photos_all", "photos_of"]:
         images.append(img[1].get_attribute("src")) #Can change in future to img[?]
 
 print('Scraped '+ str(len(images)) + ' images!')
-# print(images)
+print('Displaying image:', images[0])
 driver.get(images[0])
